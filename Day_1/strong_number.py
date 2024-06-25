@@ -34,9 +34,6 @@ def factorial(n):
         factorial*=i
     return factorial
 
-
-
-
 def is_strong_number(num):
     digits= str(num)
 
@@ -46,10 +43,33 @@ def is_strong_number(num):
 
     return num==factorial_sum
 
-
-
 number= int(input())
 if is_strong_number(number):
     print(f"{number} is Strong number")
 else:
     print(f"{number} is not strong number")
+
+
+
+### Method 3 (without converting the number to str)\
+
+import math
+def is_strong_number(number):
+    original_number= number
+
+    factorial=0
+
+    while number>0:
+        reminder = number %10
+        factorial+=math.factorial(reminder)
+        number//=10
+
+    return original_number==factorial
+
+number= int(input())
+if (is_strong_number(number)):
+    print(f"{number} is Strong number")
+else:
+    print(f"{number} is not strong number")
+
+
